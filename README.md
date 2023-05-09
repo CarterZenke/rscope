@@ -21,7 +21,8 @@ devtools::install_github("CarterZenke/rscope")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Use `parse_lateness` to convert from Gradescope’s `[H]H:MM:SS` format to
+seconds, minutes, or hours.
 
 ``` r
 library(rscope)
