@@ -19,17 +19,20 @@ parse_lateness <- function(hms, unit="seconds") {
     stop("unit must be one of \"seconds\", \"minutes\", or \"hours\"")
   }
 
+  # Split hms and calculate time in seconds
   hms_list <- strsplit(as.character(hms), split=":")[[1]]
   time <- strtoi(hms_list[3], base=10) +
             (strtoi(hms_list[2], base=10) * 60) +
             (strtoi(hms_list[1], base=10) * 60 * 60)
 
+  # Raise warning if unsuccessful at calculating time in seconds
   if (is.na(time))
   {
     warning("Argument hms cannot be parsed into hours, seconds, and minutes. Leaving alone!")
     return(hms)
   }
 
+  # Convert to desired unit
   if (unit == "minutes")
   {
     time <- time / 60
@@ -37,6 +40,5 @@ parse_lateness <- function(hms, unit="seconds") {
   {
     time <- time / 60 / 60
   }
-
   return(time)
 }
