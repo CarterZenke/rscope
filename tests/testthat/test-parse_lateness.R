@@ -18,6 +18,14 @@ test_that("parse_lateness throws error for incorrect value of unit", {
   expect_error(parse_lateness("1:00:00", unit="milliseconds"))
 })
 
+test_that("parse_lateness throws warning given empty value", {
+  expect_warning(parse_lateness(NA))
+})
+
+test_that("parse_lateness returns empty value given empty value", {
+  expect_equal(parse_lateness(NA), NA)
+})
+
 test_that("parse_lateness throws warning given integer", {
   expect_warning(parse_lateness(10000))
 })
