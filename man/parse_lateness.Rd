@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_lateness.R
 \name{parse_lateness}
 \alias{parse_lateness}
-\title{Parse HMS lateness to seconds, minutes, or hours}
+\title{Parse \code{H*H:MM:SS} formatted lateness to seconds, minutes, or hours}
 \usage{
 parse_lateness(hms, unit = "seconds")
 }
@@ -15,7 +15,7 @@ parse_lateness(hms, unit = "seconds")
 The converted time as a number
 }
 \description{
-Parse HMS lateness to seconds, minutes, or hours
+Parse \code{H*H:MM:SS} formatted lateness to seconds, minutes, or hours
 }
 \examples{
 parse_lateness("1:00:00")
