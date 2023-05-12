@@ -8,6 +8,7 @@
 #' @export
 #'
 #' @examples
+#' gradebook <- data.frame(`Problem Set 0 - Lateness (H:M:S)` = c('0:00:00', '1:32:11', '0:14:34'))
 #' gradebook <- gradebook |> find_and_parse_lateness()
 #' gradebook <- gradebook |> find_and_parse_lateness(unit = "minutes")
 #' gradebook <- gradebook |> find_and_parse_lateness(unit = "hours")
@@ -15,8 +16,8 @@
 find_and_parse_lateness <- function(df, regex="- Lateness", unit="seconds") {
 
   # Apply `parse_lateness`, row-wise, to each column that matches specified regular expression
-  new <- df %>%
-           dplyr::rowwise() %>%
+  new <- df |>
+           dplyr::rowwise() |>
            dplyr::mutate(
              dplyr::across(
                dplyr::matches(regex),
