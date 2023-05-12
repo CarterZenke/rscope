@@ -35,9 +35,9 @@ Use `parse_lateness` to convert from Gradescope's `[H]H:MM:SS` format to seconds
 
 ```{r parse_lateness_example}
 library(rscope)
-parse_lateness("1:00:00", unit="seconds")
-parse_lateness("12:30:10", unit="minutes")
-parse_lateness("3:15:04", unit="hours")
+parse_lateness("1:00:00", unit = "seconds")
+parse_lateness("12:30:10", unit = "minutes")
+parse_lateness("3:15:04", unit = "hours")
 ```
 
 Or, use `find_and_parse_lateness` to convert *all* of a roster's lateness columns to seconds, minutes, or hours.

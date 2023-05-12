@@ -26,11 +26,11 @@ seconds, minutes, or hours.
 
 ``` r
 library(rscope)
-parse_lateness("1:00:00", unit="seconds")
+parse_lateness("1:00:00", unit = "seconds")
 #> [1] 3600
-parse_lateness("12:30:10", unit="minutes")
+parse_lateness("12:30:10", unit = "minutes")
 #> [1] 750.1667
-parse_lateness("3:15:04", unit="hours")
+parse_lateness("3:15:04", unit = "hours")
 #> [1] 3.251111
 ```
 
