@@ -4,7 +4,11 @@
 \alias{find_and_parse_lateness}
 \title{Find and Parse HH:MM:SS lateness columns in a Gradescope gradebook}
 \usage{
-find_and_parse_lateness(df, regex = "- Lateness", unit = "seconds")
+find_and_parse_lateness(
+  df,
+  regex = "Lateness \\\\(H:M:S\\\\)",
+  unit = "seconds"
+)
 }
 \arguments{
 \item{df}{The dataframe (gradebook)}
@@ -20,7 +24,9 @@ Returns a dataframe with lateness columns parsed to specified unit
 Find and Parse HH:MM:SS lateness columns in a Gradescope gradebook
 }
 \examples{
-gradebook <- data.frame(`Problem Set 0 - Lateness (H:M:S)` = c('0:00:00', '1:32:11', '0:14:34'))
+gradebook <- data.frame(
+               `Problem Set 0: Scratch - Lateness (H:M:S)` = c("0:00:00", "1:32:11", "0:14:34")
+             )
 gradebook <- gradebook |> find_and_parse_lateness()
 gradebook <- gradebook |> find_and_parse_lateness(unit = "minutes")
 gradebook <- gradebook |> find_and_parse_lateness(unit = "hours")

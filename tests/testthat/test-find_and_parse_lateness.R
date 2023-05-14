@@ -8,7 +8,6 @@
 #' @examples
 #' create_csv(data.frame(x = c(1, 2, 3)))
 create_csv <- function(df) {
-
   # Create path for temporary CSV
   path <- tempfile(fileext = ".csv")
 
@@ -29,7 +28,6 @@ create_csv <- function(df) {
 #' new <- original |> rscope::find_and_parse_lateness(unit = "minutes")
 #' expect_snapshot_csv("snapshot", new)
 expect_snapshot_csv <- function(name, df) {
-
   # Identify and announce snapshot file
   name <- paste0(name, ".csv")
   announce_snapshot_file(name = name)

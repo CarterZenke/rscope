@@ -1,13 +1,13 @@
 test_that("parse_lateness parses hms to s", {
-  expect_equal(parse_lateness("1:00:00", unit="seconds"), 3600)
+  expect_equal(parse_lateness("1:00:00", unit = "seconds"), 3600)
 })
 
 test_that("parse_lateness parses hms to m", {
-  expect_equal(parse_lateness("1:00:00", unit="minutes"), 60)
+  expect_equal(parse_lateness("1:00:00", unit = "minutes"), 60)
 })
 
 test_that("parse_lateness parses hms to h", {
-  expect_equal(parse_lateness("1:00:00", unit="hours"), 1)
+  expect_equal(parse_lateness("1:00:00", unit = "hours"), 1)
 })
 
 test_that("parse_lateness parses hms to s by default", {
@@ -15,7 +15,7 @@ test_that("parse_lateness parses hms to s by default", {
 })
 
 test_that("parse_lateness throws error for incorrect value of unit", {
-  expect_error(parse_lateness("1:00:00", unit="milliseconds"))
+  expect_error(parse_lateness("1:00:00", unit = "milliseconds"))
 })
 
 test_that("parse_lateness throws warning given empty value", {

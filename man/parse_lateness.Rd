@@ -19,7 +19,7 @@ Parse \code{H*H:MM:SS} formatted lateness to seconds, minutes, or hours
 }
 \examples{
 parse_lateness("1:00:00")
-parse_lateness("1:00:00", unit="seconds")
-parse_lateness("12:00:00", unit="minutes")
-parse_lateness("0:10:00", unit="hours")
+parse_lateness("1:00:00", unit = "seconds")
+parse_lateness("12:00:00", unit = "minutes")
+parse_lateness("0:10:00", unit = "hours")
 }
