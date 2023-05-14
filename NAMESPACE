@@ -2,3 +2,4 @@
 
 export(find_and_parse_lateness)
 export(parse_lateness)
+export(select_assignments)
