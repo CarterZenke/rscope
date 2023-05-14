@@ -21,6 +21,11 @@ devtools::install_github("CarterZenke/rscope")
 
 ## Examples
 
+`rscope` comes with 3 helper functions for working with gradebooks:
+`parse_lateness`, `find_and_parse_lateness`, and `select_assignments`.
+
+### `parse_lateness`
+
 Use `parse_lateness` to convert from Gradescope’s `[H]H:MM:SS` format to
 seconds, minutes, or hours.
 
@@ -34,8 +39,10 @@ parse_lateness("3:15:04", unit = "hours")
 #> [1] 3.251111
 ```
 
-Or, use `find_and_parse_lateness` to convert *all* of a roster’s
-lateness columns to seconds, minutes, or hours.
+### `find_and_parse_lateness`
+
+Use `find_and_parse_lateness` to convert *all* of a roster’s lateness
+columns to seconds, minutes, or hours.
 
 ``` r
 library(rscope)
@@ -53,4 +60,18 @@ identifier. You can, though, adjust the regular expression yourself.
 library(rscope)
 gradebook <- data.frame(`pset0_scratch_late` = c("0:00:00", "1:32:11", "0:14:34"))
 gradebook <- gradebook |> find_and_parse_lateness(regex = "late", unit = "seconds")
+```
+
+### `select_assignments`
+
+Use `select_assignments` to return all columns that match an
+assignment’s (or multiple assignments’) title, in order, alongside the
+information that identifies students in your grade book.
+
+``` r
+library(rscope)
+gradebook <- read.csv("tests/_datasets/gradescope_big_raw.csv", check.names = FALSE)
+pset0 <- gradebook |> select_assignments("Problem Set 0")
+problems <- gradebook |> select_assignments(c("Problem Set 0", "Problem Set 1", "Problem Set 2", "Problem Set 3"))
+labs <- gradebook |> select_assignments(c("Lab 0", "Lab 1", "Lab 2", "Lab 3"))
 ```
